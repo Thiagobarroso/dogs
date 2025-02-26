@@ -24,7 +24,7 @@ function PhotoPost() {
         value={nome}
         onChange={({ target }) => setNome(target.value)} />
 
-        <button onClick={(console.log(token))}>Enviar</button>
+       
 
         
       

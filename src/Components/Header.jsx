@@ -5,12 +5,16 @@ import Logo from "../Assets/dogs.svg";
 
 function Header() {
   return (
-    <nav className={styles.Header}>
-      <Link to="/">
-        <img src={Logo} alt="Dogs - Home" aria-label="Dogs - Home" />
-      </Link>
-      <Link to="/login">Login / Criar </Link>
-    </nav>
+    <header className={`${styles.header}`}>
+      <nav className={`${styles.nav} container`}>
+        <Link to="/" className={styles.logo}>
+          <img src={Logo} alt="Dogs - Home" aria-label="Dogs - Home" />
+        </Link>
+        <Link to="/login" className={styles.login}>
+          Login / Criar{" "}
+        </Link>
+      </nav>
+    </header>
   );
 }
 

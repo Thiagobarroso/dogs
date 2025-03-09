@@ -10,7 +10,7 @@ function Header() {
         <Link to="/" className={styles.logo}>
           <img src={Logo} alt="Dogs - Home" aria-label="Dogs - Home" />
         </Link>
-        <Link to="/login" className={styles.login}>
+        <Link to="/Login" className={styles.login}>
           Login / Criar{" "}
         </Link>
       </nav>

@@ -1,13 +1,42 @@
-# React + Vite
+# 🐶 Dogs Social — Rede Social para Cães
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um projeto de **rede social voltada para cães e seus donos**, desenvolvida com **Vite + React**, utilizando **JWT Token** para autenticação e um visual moderno, divertido e responsivo. Os usuários podem criar contas, fazer login, cadastrar perfis de seus pets, interagir e compartilhar momentos fofos do dia a dia.
 
-Currently, two official plugins are available:
+## 📸 Screenshot
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Preview da Página](./screenshot-login-dogs.png)
 
-## Expanding the ESLint configuration
+## 🌟 Visão Geral
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# dogs
+**Dogs Social** tem como objetivo criar um espaço online onde apaixonados por cães possam:
+
+- Criar perfis personalizados para seus pets 🐕
+- Publicar fotos, descrições e atualizações
+- Curtir, comentar e seguir outros cães
+- Interagir com a comunidade pet de forma segura e divertida
+
+---
+
+## 🚀 Funcionalidades
+
+- 🔐 **Login seguro com autenticação via JWT**
+- 🐾 Cadastro de **usuário e perfil do cão**
+- 📷 Upload de fotos dos pets
+- 💬 Sistema de **posts, curtidas e comentários**
+- 🔎 Buscar perfis e fazer amizades caninas
+- 🧑‍💻 Interface moderna e responsiva
+- 📲 Design mobile-first
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- ⚡ [Vite](https://vitejs.dev/) — Bundler super rápido para React
+- ⚛️ [React](https://react.dev/) — Biblioteca moderna para interfaces
+- 💅 CSS3, Styled Components ou CSS Modules
+- 🌐 HTML5
+- 🔒 [JWT (JSON Web Token)](https://jwt.io/) — Autenticação segura
+- 📡 [Axios](https://axios-http.com/) — Requisições HTTP
+- 🧭 [React Router DOM](https://reactrouter.com/) — Rotas SPA
+- 🗃️ LocalStorage para armazenamento do token
+- 🧰 Node.js + Express (no backend) com banco de dados relacional ou NoSQL

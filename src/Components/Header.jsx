@@ -1,11 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./Header.module.css";
 import Dogs from "../Assets/dogs.svg";
 import { UserContext } from "../userContext";
 
 function Header() {
-  const { data } = React.useContext(UserContext);
+  const { data, userLogout } = React.useContext(UserContext);
+  const navigate = useNavigate();
+
+  function handleLogout() {
+    userLogout();
+  }
 
   return (
     <header className={styles.header}>
@@ -13,12 +18,14 @@ function Header() {
         <Link className={styles.logo} to="/" aria-label="Dogs - Home">
           <img src={Dogs} alt="Logo Dogs" />
         </Link>
+
         {data ? (
-          <Link className={styles.login} to="/conta">
-            {data.nome}
-          </Link>
+          <div className={styles.login}>
+            <Link to="/conta">{data.nome}</Link>
+            <button onClick={handleLogout}>Sair</button>
+          </div>
         ) : (
-          <Link className={styles.login} to="/Login">
+          <Link className={styles.login} to="/login">
             Login / Criar
           </Link>
         )}

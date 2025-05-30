@@ -1,15 +1,18 @@
 import React from "react";
 import useForm from "../../Hooks/useForm";
 import { UserContext } from "../../userContext";
-import Input from "../Forms/Input"; // Certifique-se de importar o Input
-import Button from "../Forms/button"; // Certifique-se de importar o Button
-import { Link } from "react-router-dom"; // Certifique-se de importar o Link
+import Input from "../Forms/Input";
+import Button from "../Forms/button";
+import { Link } from "react-router-dom";
+import Error from "../Helper/Error";
+import styles from "./LoginForm.module.css";
+import stylesBtn from "../Forms/Button.module.css";
 
 function LoginForm() {
   const username = useForm();
   const password = useForm();
 
-  const { userLogin } = React.useContext(UserContext);
+  const { userLogin, error, loading } = React.useContext(UserContext);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -20,18 +23,34 @@ function LoginForm() {
   }
 
   return (
-    <div>
-      <h1>Login</h1>
+    <section className="animeLeft">
+      <h1 className="title">Login</h1>
 
-      <form onSubmit={handleSubmit}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <Input label="Usuário" type="text" name="username" {...username} />
         <Input label="Senha" type="password" name="password" {...password} />
-
-        <Button>Entrar</Button>
+        {loading ? (
+          <Button disabled>Carregando</Button>
+        ) : (
+          <Button>Entrar</Button>
+        )}
+        <Error error={error} />
       </form>
-      <Link to="/login/criar">Cadastro</Link>
-    </div>
+      <Link className={styles.perdeu} to="/login/perdeu">
+        Perdeu a senha?{" "}
+      </Link>
+      <div className={styles.cadastro}>
+        <h2 className={styles.subtitle}>Cadastra-se</h2>
+        <p>ainda não possui conta? Cadastra-se no site</p>
+      </div>
+      <Link
+        style={{ display: "inline-block" }}
+        className={stylesBtn.button}
+        to="/login/criar"
+      >
+        Cadastro
+      </Link>
+    </section>
   );
 }
-
 export default LoginForm;

@@ -1,36 +1,29 @@
 import React from "react";
 import Input from "../Forms/Input";
 import Button from "../Forms/button";
+import Error from "../Helper/Error";
 import useForm from "../../Hooks/useForm";
+import { USER_POST } from "../../api";
+import { UserContext } from "../../UserContext";
+import useFetch from "../../Hooks/useFetch";
 
 function LoginCreate() {
   const username = useForm();
   const email = useForm("email");
-  const password = useForm("password");
+  const password = useForm();
+
+  const { userLogin } = React.useContext(UserContext);
+  const { loading, error, request } = useFetch();
 
   async function handleSubmit(event) {
     event.preventDefault();
-
-    const user = {
+    const { url, options } = USER_POST({
       username: username.value,
       email: email.value,
       password: password.value,
-    };
-
-    try {
-      const response = await fetch("https://api.example.com/create-user", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(user),
-      });
-
-      const json = await response.json();
-      console.log(json);
-    } catch (error) {
-      console.error("Erro ao criar usuário:", error);
-    }
+    });
+    const { response } = await request(url, options);
+    if (!response.ok) userLogin(username.value, password.value);
   }
 
   return (
@@ -41,7 +34,12 @@ function LoginCreate() {
         <Input label="Usuário" type="text" name="username" {...username} />
         <Input label="Email" type="email" name="email" {...email} />
         <Input label="Senha" type="password" name="password" {...password} />
-        <Button>Cadastrar</Button>
+        {loading ? (
+          <Button disabled>Cadastrando...</Button>
+        ) : (
+          <Button>Cadastrar</Button>
+        )}
+        <Error error={error} />
       </form>
     </section>
   );

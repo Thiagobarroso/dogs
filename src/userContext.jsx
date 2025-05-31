@@ -59,7 +59,6 @@ export function UserStorage({ children }) {
     } catch (err) {
       setError(err.message);
       setLogin(false);
-      // userLogout(); <- só chame se realmente necessário
     } finally {
       setLoading(false);
     }
@@ -75,7 +74,7 @@ export function UserStorage({ children }) {
 
   return (
     <UserContext.Provider
-      value={{ userLogin, data, error, loading, login, userLogin, userLogout }}
+      value={{ data, error, loading, login, userLogin, userLogout }}
     >
       {children}
     </UserContext.Provider>

@@ -18,7 +18,7 @@ export function UserStorage({ children }) {
           setError(null);
           setLoading(true);
           const { url, options } = TOKEN_VALIDATE_POST(token);
-          const response = await fetch(url, options); // Verifica se o token é válido
+          const response = await fetch(url, options); // Verifica se o token é *válido
           if (!response.ok) throw new Error("Token inválido");
           getUser(token); // Se for válido, busca os dados do usuário
         } catch (err) {
@@ -29,6 +29,8 @@ export function UserStorage({ children }) {
         } finally {
           setLoading(false);
         }
+      } else {
+        setLogin(false); // Se não houver token, define login como false
       }
     }
     autoLogin();

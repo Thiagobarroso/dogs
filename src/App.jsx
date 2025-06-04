@@ -5,7 +5,7 @@ import Home from "./Components/Home";
 import Login from "./Components/Login/Login";
 import User from "./Components/User/User";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ProtectedRoute from "./Components/Helper/ProtectedRoute";
+import ProtectedRoute from "./Components/Helper/ProtectedRout";
 import { UserStorage } from "./UserContext";
 
 function App() {

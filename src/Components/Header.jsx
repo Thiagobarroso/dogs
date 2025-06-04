@@ -8,11 +8,6 @@ function Header() {
   const { data, userLogout } = React.useContext(UserContext);
   const navigate = useNavigate();
 
-  function handleLogout() {
-    userLogout();
-    navigate("/login");
-  }
-
   return (
     <header className={styles.header}>
       <nav className={`${styles.nav} container`}>
@@ -23,7 +18,6 @@ function Header() {
         {data ? (
           <div className={styles.login}>
             <Link to="/conta">{data.nome}</Link>
-            <button onClick={handleLogout}>Sair</button>
           </div>
         ) : (
           <Link className={styles.login} to="/login">

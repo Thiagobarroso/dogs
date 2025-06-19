@@ -30,7 +30,7 @@ export function UserStorage({ children }) {
           setLoading(false);
         }
       } else {
-        setLogin(false); // Se não houver token, define login como false
+        setLogin(false);
       }
     }
     autoLogin();
@@ -71,7 +71,6 @@ export function UserStorage({ children }) {
     setLogin(false);
     setError(null);
     window.localStorage.removeItem("token");
-    navigate("/Login");
   }
 
   return (

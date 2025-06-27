@@ -31,4 +31,5 @@
   height: 17px;
   background: url("../Assets/usuario.svg") no-repeat center center;
   margin-left: 0.5rem;
+  cursor: pointer;
 }

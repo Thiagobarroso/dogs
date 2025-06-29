@@ -64,3 +64,24 @@ export function PHOTO_POST(formData, token) {
     },
   };
 }
+
+export function PHOTOS_GET({ page, total, user }) {
+  const userParam = user !== undefined && user !== null ? user : "";
+  return {
+    url: `${API_URL}/api/photo/?_page=${page}&_total=${total}&_user=${userParam}`,
+    options: {
+      method: "GET",
+      cache: "no-cache",
+    },
+  };
+}
+
+export function PHOTO_GET({ id }) {
+  return {
+    url: `${API_URL}/api/photo/${id}`,
+    options: {
+      method: "GET",
+      cache: "no-cache",
+    },
+  };
+}

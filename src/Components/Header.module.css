@@ -3,7 +3,7 @@
   position: fixed;
   width: 100%;
   z-index: 100;
-  background-color: white;
+  background: white;
   top: 0px;
 }
 
@@ -25,11 +25,12 @@
 }
 
 .login::after {
-  content: "";
+  content: '';
   display: inline-block;
   width: 14px;
   height: 17px;
-  background: url("../Assets/usuario.svg") no-repeat center center;
+  background: url('../Assets/usuario.svg') no-repeat center center;
   margin-left: 0.5rem;
-  cursor: pointer;
+  position: relative;
+  top: -1px;
 }
